@@ -1,26 +1,26 @@
 // find the first unique charecter position in a given string ?
-const str = "racecar";
+// const str = "racecar";
 
 // way 1
-for (const char of str) {
-  const indexPosition = str.indexOf(char);
-  if (indexPosition === str.lastIndexOf(char)) {
-    console.log(indexPosition, char);
-    break;
-  }
-}
+// for (const char of str) {
+//   const indexPosition = str.indexOf(char);
+//   if (indexPosition === str.lastIndexOf(char)) {
+//     console.log(indexPosition, char);
+//     break;
+//   }
+// }
 
 // way 2
-const arr = str.split("");
-for (const char of str) {
-  const filItems = arr.filter((item) => item === char);
-  if (filItems.length === 1) {
-    console.log(str.indexOf(char), char);
-    break;
-  }
-}
+// const arr = str.split("");
+// for (const char of str) {
+//   const filItems = arr.filter((item) => item === char);
+//   if (filItems.length === 1) {
+//     console.log(str.indexOf(char), char);
+//     break;
+//   }
+// }
 
-const numArr = [0, 1, 0, 3, 12];
+// const numArr = [0, 1, 0, 3, 12];
 
 // way 1
 // const val = 0;
