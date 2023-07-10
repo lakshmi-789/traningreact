@@ -34,6 +34,6 @@ const numArr = [0, 1, 0, 3, 12];
 // console.log(numArr);
 
 // way 2
-const filArr = numArr.filter((val) => val);
-filArr.push(...new Array(numArr.length - filArr.length).fill(0));
-console.log(filArr);
+// const filArr = numArr.filter((val) => val);
+// filArr.push(...new Array(numArr.length - filArr.length).fill(0));
+// console.log(filArr);
