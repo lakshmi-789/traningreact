@@ -25,7 +25,6 @@ const MainContent = (props) => {
         section used for context
       </p>
       <button onClick={handleClick}>Change Name</button>
-      {/* <button onclick="handleClick()">Change Name</button> */}
       <br />
       <br />
       <hr />
