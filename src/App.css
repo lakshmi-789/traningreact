@@ -1,6 +1,5 @@
 .content-wrapper {
   height: 50px;
-  background: white;
   padding: 0 20px;
   display: flex;
   align-items: center;
@@ -30,4 +29,8 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
+}
+
+.main-content {
+  min-height: calc(100vh - 100px);
 }

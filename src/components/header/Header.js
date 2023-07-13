@@ -1,52 +1,71 @@
-import { Component } from "react";
-import LogoImage from "../../assets/images/hero-logo.webp";
-import Login from "../auth/Login";
-import Signup from "../auth/Signup";
+import { ReactComponent as HeroIcon } from "../../assets/images/logo.svg";
+import { ReactComponent as DrakThemeIcon } from "../../assets/images/dark-theme.svg";
+import { ReactComponent as LightThemeIcon } from "../../assets/images/light-theme.svg";
+// import DrakThemeIcon from "../../assets/images/dark-theme.svg";
+// import LightThemeIcon from "../../assets/images/light-theme.svg";
+import UserIcon from "../../assets/images/user.png";
 
-class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.userData = {
-      name: "Veerendra Kumar",
-      age: "29",
-    };
+const Header = ({ theme, settheme }) => {
+  // const changeTheme = () => {
+  //   if (theme === "light") {
+  //     settheme("dark");
+  //   } else {
+  //     settheme("light");
+  //   }
+  // };
 
-    this.state = {
-      isButtonsDisplay: false,
-    };
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-  // without arrow fucntion using this bind
-  handleClick() {
-    this.props.getUserData(this.userData);
-  }
-
-  // with arrow fucntion no need to bind this
-  handleToggle = () => {
-    this.setState({
-      isButtonsDisplay: !this.state.isButtonsDisplay,
-    });
-  };
-
-  render() {
-    return (
-      <header className="header content-wrapper">
-        <div className="hero-content">
-          <img src={LogoImage} alt="Banner" />
-          <h2>{this.props.brandName}</h2>
+  return (
+    <header className={`header content-wrapper ${theme}`}>
+      <div className="hero-section">
+        <a href="/">
+          {/* <img src={HeroIcon} alt="hero" /> */}
+          <HeroIcon className="hero-image icon-image" />
+          <span className="hero-title">React</span>
+        </a>
+      </div>
+      <div className="right-content">
+        <div className="search-bar">
+          <input type="search" placeholder="Search.." />
         </div>
-        <button onClick={this.handleToggle}>Toggle</button>
-        <div className="action-items">
-          {this.state.isButtonsDisplay ? (
-            <Login handleClick={this.handleClick} />
+        <div className="nav-items">
+          <a href="https://react-dev/learn" className="nav-item link-item">
+            Learn
+          </a>
+          <a href="https://react-dev/reference" className="nav-item link-item">
+            Reference
+          </a>
+          <a href="https://react-dev/community" className="nav-item link-item">
+            Community
+          </a>
+          <a href="https://react-dev/blog" className="nav-item link-item">
+            Blog
+          </a>
+          {theme === "light" ? (
+            <button
+              className="nav-item click-item"
+              onClick={function () {
+                settheme("dark");
+              }}
+            >
+              {/* <img src={LightThemeIcon} alt="light-theme" /> */}
+              <LightThemeIcon className="icon icon-image" />
+            </button>
           ) : (
-            <Signup handleClick={this.handleClick} />
+            <button
+              className="nav-item click-item"
+              onClick={() => settheme("light")}
+            >
+              {/* <img src={DrakThemeIcon} alt="dark-theme" /> */}
+              <DrakThemeIcon className="icon icon-image" />
+            </button>
           )}
+          <button className="nav-item click-item">
+            <img src={UserIcon} alt="user" className="icon" />
+          </button>
         </div>
-      </header>
-    );
-  }
-}
+      </div>
+    </header>
+  );
+};
 
 export default Header;
