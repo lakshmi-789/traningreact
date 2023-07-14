@@ -4,8 +4,10 @@ import { ReactComponent as LightThemeIcon } from "../../assets/images/light-them
 // import DrakThemeIcon from "../../assets/images/dark-theme.svg";
 // import LightThemeIcon from "../../assets/images/light-theme.svg";
 import UserIcon from "../../assets/images/user.png";
+import { useState } from "react";
 
-const Header = ({ theme, settheme }) => {
+const Header = ({ theme, settheme, setsearchText }) => {
+  const [text, settext] = useState("");
   // const changeTheme = () => {
   //   if (theme === "light") {
   //     settheme("dark");
@@ -13,6 +15,16 @@ const Header = ({ theme, settheme }) => {
   //     settheme("light");
   //   }
   // };
+
+  const handleChange = (e) => {
+    settext(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    if (e.keyCode === 13) {
+      setsearchText(e.target.value);
+    }
+  };
 
   return (
     <header className={`header content-wrapper ${theme}`}>
@@ -25,7 +37,17 @@ const Header = ({ theme, settheme }) => {
       </div>
       <div className="right-content">
         <div className="search-bar">
-          <input type="search" placeholder="Search.." />
+          <input
+            type="search"
+            placeholder="Search.."
+            value={text}
+            onChange={handleChange}
+            onKeyDown={handleSubmit}
+            // onChange={function (e) {
+            //   setsearchText(e.target.value);
+            // }}
+            // onChange={(e) => setsearchText(e.target.value)}
+          />
         </div>
         <div className="nav-items">
           <a href="https://react-dev/learn" className="nav-item link-item">
