@@ -6,7 +6,7 @@ import "./App.css";
 import "./assets/css/root.css";
 
 const App = () => {
-  const brandName = "Logo";
+  const brandName = "Logo Name";
   const [userData, setuserData] = useState({});
   const [theme, settheme] = useState("light");
 
