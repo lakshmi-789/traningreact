@@ -4,11 +4,13 @@ import Footer from "./components/footer/Footer";
 import MainContent from "./components/main-content/MainContent";
 import "./App.css";
 import "./assets/css/root.css";
+import "./assets/scss/index.scss";
 
 const App = () => {
   const brandName = "Logo Name";
   const [userData, setuserData] = useState({});
   const [theme, settheme] = useState("light");
+  const [searchText, setsearchText] = useState("");
 
   const getUserData = (user) => {
     setuserData(user);
@@ -21,8 +23,10 @@ const App = () => {
         getUserData={getUserData}
         theme={theme}
         settheme={settheme}
+        searchText={searchText}
+        setsearchText={setsearchText}
       />
-      <MainContent userData={userData} />
+      <MainContent userData={userData} searchText={searchText} />
       <Footer brandName={brandName} />
     </div>
   );
