@@ -93,6 +93,7 @@ header.content-wrapper {
 
 
   .right-content {
+    position: relative;
     @extend %flex-center;
 
     .search-bar {
@@ -134,6 +135,13 @@ header.content-wrapper {
           object-position: center;
         }
       }
+    }
+
+    .dropdown-container {
+      position: absolute;
+      right: 10px;
+      top: 42px;
+      z-index: 9;
     }
   }
 }
